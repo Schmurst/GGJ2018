@@ -2,15 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RadioSnippet : MonoBehaviour {
+public class RadioSnippet : MonoBehaviour
+{	
+	[SerializeField] AudioClip m_clip;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

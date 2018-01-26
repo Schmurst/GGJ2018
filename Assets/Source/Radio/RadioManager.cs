@@ -2,15 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RadioManager : MonoBehaviour {
+public class RadioManager : MonoSingleton<RadioManager>
+{
+	[SerializeField] RadioWeek[] m_weeks;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

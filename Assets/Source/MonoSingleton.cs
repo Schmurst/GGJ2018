@@ -14,7 +14,7 @@ using System.Collections.Generic;
 public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
 {
 	private static T m_Instance = null;
-	public static T instance
+	public static T Me
 	{
 		get
 		{
