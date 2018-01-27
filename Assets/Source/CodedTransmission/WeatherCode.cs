@@ -2,15 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeatherCode : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
+public class WeatherCode : MonoBehaviour, ITranmission
+{
+	public TransmissionType Type { get { return TransmissionType.weather; } }
+	public enum WeatherType
+	{
+		sun,
+		rain,
+		snow,
+		apocalyse,
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public WeatherType weatherType;
+	public int Temperature = 0;
+
+	public int CalculateCode (int _val)
+	{
+		return 0;
 	}
 }
