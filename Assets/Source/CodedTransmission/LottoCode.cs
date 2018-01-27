@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LottoCode : MonoBehaviour, ICodedTranmission
+public class LottoCode : MonoBehaviour, ITranmission
 {
+	public TransmissionType Type { get { return TransmissionType.lotto; } }
+
 	public enum LottoType
 	{
 		add3rd,
@@ -11,7 +13,7 @@ public class LottoCode : MonoBehaviour, ICodedTranmission
 		repeated,
 	}
 
-	public LottoType Type;
+	public LottoType lottoType;
 
 	public int CalculateCode (int _val)
 	{

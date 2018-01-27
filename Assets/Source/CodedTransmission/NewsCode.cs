@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewsCode : MonoBehaviour, ICodedTranmission
+public class NewsCode : MonoBehaviour, ITranmission
 {
+	public TransmissionType Type { get { return TransmissionType.news; } }
+
 	public enum NewsType
 	{
 		WarEffort,
@@ -12,7 +14,7 @@ public class NewsCode : MonoBehaviour, ICodedTranmission
 		David
 	}
 
-	public NewsType Type;
+	public NewsType newsType;
 
 	public int CalculateCode (int _val)
 	{

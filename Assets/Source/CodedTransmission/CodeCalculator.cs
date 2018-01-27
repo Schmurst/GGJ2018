@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class CodeCalculator : MonoSingleton<CodeCalculator>
 {
@@ -12,10 +13,23 @@ public class CodeCalculator : MonoSingleton<CodeCalculator>
 		return true;
 	}
 		
-	int DecodeTransmission (ICodedTranmission[] _trans)
+	int DecodeTransmission (ITranmission[] _trans)
 	{
-		// Get Date
+//		_trans = _trans.OrderBy ();
 
+
+		//date
+		var date = CodeConfig.Me.GetDate();
+
+		//news
+
+		//weather
+
+		//lotto
+
+		//sport
+
+		//rules
 
 		return 0;
 	}

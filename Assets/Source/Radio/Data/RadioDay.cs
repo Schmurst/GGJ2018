@@ -11,5 +11,5 @@ public class RadioDay : MonoBehaviour
 
 	public float TimeLimit { get { return m_timeLimit; } }
 	public AudioClip[] AudioClips{get{return m_snippets.Select (x => x.Clip).ToArray ();}}
-	public ICodedTranmission[] Transmissions {get{return m_snippets.Select (x=>x.Code).ToArray();}}
+	public ITranmission[] Transmissions {get{return m_snippets.Select (x=>x.Code).ToArray();}}
 }

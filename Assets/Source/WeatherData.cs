@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeatherData : MonoBehaviour, ICodedTranmission
+public class WeatherData : MonoBehaviour, ITranmission
 {
+	public TransmissionType Type { get { return TransmissionType.weather; } }
 	public enum WeatherType
 	{
 		sun,
@@ -12,7 +13,7 @@ public class WeatherData : MonoBehaviour, ICodedTranmission
 		apocalyse,
 	}
 
-	public WeatherType Type;
+	public WeatherType weatherType;
 	public int Temperature = 0;
 
 	public int CalculateCode (int _val)

@@ -7,5 +7,5 @@ public class RadioSnippet : MonoBehaviour
 	[SerializeField] AudioClip m_clip;
 
 	public AudioClip Clip { get { return m_clip; } }
-	public ICodedTranmission Code { get { return gameObject.GetComponent<ICodedTranmission> (); } }
+	public ITranmission Code { get { return gameObject.GetComponent<ITranmission> (); } }
 }
