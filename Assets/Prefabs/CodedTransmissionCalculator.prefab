@@ -55,21 +55,22 @@ MonoBehaviour:
   NewsWarOp: 0
   NewsZarotOp: 1
   NewsZarotVal: 2
-  NewsTeamOp: 0
-  NewsTeamVal: 0
-  NewsDavidOp: 0
+  NewsTeamOp: 2
+  NewsTeamVal: 3
+  NewsDavidOp: 4
   NewsDavidVal: 0
   WeatherRainOp: 0
-  WeatherSnowOp: 0
-  WeatherSunOp: 0
+  WeatherSnowOp: 2
+  WeatherSunOp: 1
   WeatherApocOp: 0
   LottoAdd3rdOp: 0
   LottoLastIsEvenOp: 0
-  LottoLastIsEvenVal: 0
-  LottoIfRepeated: 0
-  SportScoreDiffOp: 0
+  LottoIfRepeated: 3
+  SportScoreDiffOp: 2
   SportTeamOp: 0
-  SportSoloOp: 0
+  SportTeamVal: 4
+  SportSoloOp: 1
+  SportSoloVal: 4
 --- !u!114 &114442013934972634
 MonoBehaviour:
   m_ObjectHideFlags: 1
