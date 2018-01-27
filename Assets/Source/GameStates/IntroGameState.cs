@@ -6,6 +6,8 @@ public class IntroGameState : GameState<IntroGameState>, IGameState
 {
 	public EGameState Type { get { return EGameState.intro; } }
 
+	[SerializeField] float m_introLengthSeconds ;
+
 	public override void Init ()
 	{
 		base.Init ();
@@ -14,6 +16,7 @@ public class IntroGameState : GameState<IntroGameState>, IGameState
 	public override void EnterState ()
 	{
 		base.EnterState ();
+		StartCoroutine (Co_PlayIntro());
 	}
 
 	public override void ExitState ()
@@ -21,8 +24,9 @@ public class IntroGameState : GameState<IntroGameState>, IGameState
 		base.ExitState ();
 	}
 
-	public override void ChangeState (IGameState _newState)
+	IEnumerator Co_PlayIntro()
 	{
-		base.ChangeState (_newState);
+		yield return new WaitForSeconds (m_introLengthSeconds);
+		GameManager.Me.SetState (RadioGameState.Me);
 	}
 }

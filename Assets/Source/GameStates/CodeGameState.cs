@@ -2,15 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CodeGameState : MonoBehaviour {
+public class CodeGameState : GameState<CodeGameState>, IGameState
+{
+	public EGameState Type { get { return EGameState.code; } }
 
-	// Use this for initialization
-	void Start () {
-		
+	public override void Init ()
+	{
+		base.Init ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public override void EnterState ()
+	{
+		base.EnterState ();
+	}
+
+	public override void ExitState ()
+	{
+		base.ExitState ();
 	}
 }
