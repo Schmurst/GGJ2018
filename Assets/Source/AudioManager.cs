@@ -32,11 +32,13 @@ public class AudioManager : MonoSingleton<AudioManager>
 		WaitUntil wait = new WaitUntil(()=>{return !m_sourceRadio.isPlaying;});
 		int idx = 0;
 		do {
+			Debug.LogFormat("Starting to play audio clip; {0}", idx);
 			m_sourceRadio.clip =_clips [idx++]; 
 			m_sourceRadio.Play ();
 			yield return wait;
 		} while (idx < _clips.Length);
 
+		Debug.LogFormat("Finished playing {0} clips", idx);
 		if (_onComplete != null)
 			_onComplete ();
 	}
