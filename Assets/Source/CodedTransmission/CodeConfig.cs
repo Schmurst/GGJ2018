@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class CodeConfig : MonoSingleton<CodeConfig>
 {
@@ -35,19 +36,127 @@ public class CodeConfig : MonoSingleton<CodeConfig>
 	[Header("Lotto")]
 	[SerializeField] OperationType LottoAdd3rdOp;
 	[SerializeField] OperationType LottoLastIsEvenOp;
-	[SerializeField] int LottoLastIsEvenVal;
 	[SerializeField] OperationType LottoIfRepeated;
 
 	[Header("Sport")]
 	[SerializeField] OperationType SportScoreDiffOp;
 	[SerializeField] OperationType SportTeamOp;
+	[SerializeField] int SportTeamVal;
 	[SerializeField] OperationType SportSoloOp;
+	[SerializeField] int SportSoloVal;
 
+	// -------------------------------------------------------------------------------------------
 	public int GetDate()
 	{
 		return (DateStart + RadioManager.Me.WeekIdx * 7 + RadioManager.Me.DayIdx) % 30;
 	}
 
+	// -------------------------------------------------------------------------------------------
+	void Calculate (OperationType _type, ref int _result, int _value)
+	{
+		switch (_type)
+		{
+		case OperationType.plus:
+			_result += _value;
+			break;
+		case OperationType.minus:
+			_result -= _value;
+			break;
+		case OperationType.mult:
+			_result *= _value;
+			break;
+		case OperationType.reverse:
+			_result = int.Parse(new string(_result.ToString().Reverse().ToArray()));
+			break;
+		case OperationType.david:
+			char[] digets = _result.ToString ().ToCharArray ();
+			_result = 0;
+			for (int i = 0; i < digets.Length; i++)
+				_result += int.Parse (new string (new char[] {digets [i]}));
+			break;
+		}
+	}
 
+	// -------------------------------------------------------------------------------------------
+	public void Calculate(NewsCode.NewsType _type, ref int _result)
+	{
+		switch (_type)
+		{
+		case NewsCode.NewsType.WarEffort:
+			Calculate (NewsWarOp, ref _result, CodeConfig.Me.GetDate());
+			break;
+		case NewsCode.NewsType.Zarot:
+			Calculate (NewsZarotOp, ref _result, NewsZarotVal);
+			break;
+		case NewsCode.NewsType.Teamwork:
+			Calculate (this.NewsTeamOp, ref _result, NewsTeamVal);
+			break;
+		case NewsCode.NewsType.David:
+			Calculate (this.NewsDavidOp, ref _result, NewsDavidVal);
+			break;
+		}
+	}
 
+	// -------------------------------------------------------------------------------------------
+	public void Calculate(WeatherCode.WeatherType _type, ref int _result, int _temp)
+	{
+		switch (_type)
+		{
+		case WeatherCode.WeatherType.sun:
+			Calculate (WeatherSunOp, ref _result, _temp);
+			break;
+		case WeatherCode.WeatherType.rain:
+			Calculate (WeatherRainOp, ref _result, _temp);
+			break;
+		case WeatherCode.WeatherType.snow:
+			Calculate (WeatherSnowOp, ref _result, _temp);
+			break;
+		case WeatherCode.WeatherType.apocalyse:
+			Calculate (WeatherApocOp, ref _result, _temp);
+			break;
+		}
+	}
+
+	// -------------------------------------------------------------------------------------------
+	public void Calculate(SportCode.SportType _type, ref int _result, int _value)
+	{
+		switch (_type)
+		{
+		case SportCode.SportType.multbyDiff:
+			Calculate (SportScoreDiffOp, ref _result, _value);
+			break;
+		case SportCode.SportType.teamSport:
+			Calculate (SportTeamOp, ref _result, SportSoloVal);
+			break;
+		case SportCode.SportType.zarot:
+			Calculate (NewsZarotOp, ref _result, NewsZarotVal);
+			break;
+		}
+	}
+
+	// -------------------------------------------------------------------------------------------
+	public void Calculate(LottoCode.LottoType _type, ref int _result, int[] _values)
+	{
+		switch (_type)
+		{
+		case LottoCode.LottoType.add3rd:
+			Calculate (LottoAdd3rdOp, ref _result, _values [2]);
+			break;
+		case LottoCode.LottoType.lastIsEven:
+			if ((_values [5] & 1) == 0)
+				Calculate (LottoLastIsEvenOp, ref _result, _values [5]);
+			break;
+		case LottoCode.LottoType.repeated:
+			var sortedValues = _values.OrderBy(x=>{return x;}).ToArray();
+			for (int i = 0; i < sortedValues.Length-1; i++)
+			{
+				if (sortedValues [i] == sortedValues [i + 1])
+				{
+					Calculate (OperationType.reverse, ref _result, 0);
+					break;
+				}
+			}
+			break;
+		}
+	}
 }

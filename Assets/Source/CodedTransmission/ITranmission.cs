@@ -13,5 +13,4 @@ public enum TransmissionType
 public interface ITranmission
 {
 	TransmissionType Type { get; }
-	int CalculateCode (int _val);
 }

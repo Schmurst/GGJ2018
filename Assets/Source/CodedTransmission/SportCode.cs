@@ -9,11 +9,9 @@ public class SportCode : MonoBehaviour, ITranmission
 	{
 		multbyDiff,
 		teamSport,
+		zarot
 	}
 
 	public SportType sportType;
-	public int CalculateCode (int _val)
-	{
-		return 0;
-	}
+	public int Value;
 }

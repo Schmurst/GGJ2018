@@ -14,9 +14,5 @@ public class LottoCode : MonoBehaviour, ITranmission
 	}
 
 	public LottoType lottoType;
-
-	public int CalculateCode (int _val)
-	{
-		return 0;
-	}
+	public int[] LottoNumbers;
 }
