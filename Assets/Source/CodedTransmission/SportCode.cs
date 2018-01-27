@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SportCode : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
+public class SportCode : MonoBehaviour, ICodedTranmission
+{
+	public enum SportType
+	{
+		multbyDiff,
+		teamSport,
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public SportType Type;
+	public int CalculateCode (int _val)
+	{
+		return 0;
 	}
 }

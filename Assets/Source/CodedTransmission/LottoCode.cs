@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LottoCode : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
+public class LottoCode : MonoBehaviour, ICodedTranmission
+{
+	public enum LottoType
+	{
+		add3rd,
+		lastIsEven,
+		repeated,
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public LottoType Type;
+
+	public int CalculateCode (int _val)
+	{
+		return 0;
 	}
 }

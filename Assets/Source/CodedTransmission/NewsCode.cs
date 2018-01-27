@@ -12,5 +12,10 @@ public class NewsCode : MonoBehaviour, ICodedTranmission
 		David
 	}
 
+	public NewsType Type;
 
+	public int CalculateCode (int _val)
+	{
+		return 0;
+	}
 }
