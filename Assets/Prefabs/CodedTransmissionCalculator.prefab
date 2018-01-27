@@ -52,6 +52,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec4266bd1729a432f8ff8847fce8a27c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NewsWarOp: 0
+  NewsZarotOp: 1
+  NewsZarotVal: 2
+  NewsTeamOp: 0
+  NewsTeamVal: 0
+  NewsDavidOp: 0
+  NewsDavidVal: 0
+  WeatherRainOp: 0
+  WeatherSnowOp: 0
+  WeatherSunOp: 0
+  WeatherApocOp: 0
+  LottoAdd3rdOp: 0
+  LottoLastIsEvenOp: 0
+  LottoLastIsEvenVal: 0
+  LottoIfRepeated: 0
+  SportScoreDiffOp: 0
+  SportTeamOp: 0
+  SportSoloOp: 0
 --- !u!114 &114442013934972634
 MonoBehaviour:
   m_ObjectHideFlags: 1
