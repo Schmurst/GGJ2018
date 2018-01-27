@@ -7,9 +7,9 @@ public class RadioDay : MonoBehaviour
 {
 	[SerializeField] RadioSnippet[] m_snippets;	
 	[SerializeField] RadioSnippet m_countDownTrack;
+	[SerializeField] float m_timeLimit = 30f;
 
-	public AudioClip[] GetClips()
-	{
-		return m_snippets.Select (x => x.Clip).ToArray();
-	}
+	public float TimeLimit { get { return m_timeLimit; } }
+	public AudioClip[] AudioClips{get{return m_snippets.Select (x => x.Clip).ToArray ();}}
+	public ICodedTranmission[] Transmissions {get{return m_snippets.Select (x=>x.Code).ToArray();}}
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class AudioManager : MonoSingleton<AudioManager>
 {
+	public int ClipIdx { get; private set; }
+
 	AudioSource m_sourceRadio;
 	Coroutine m_currentRadio;
 
@@ -17,7 +19,7 @@ public class AudioManager : MonoSingleton<AudioManager>
 	// -------------------------------------------------------------------------------------------
 	public void PlayRadio(RadioDay _radioDay, Action _onComplete)
 	{
-		m_currentRadio = StartCoroutine (Co_PlayRadio(_radioDay.GetClips(), _onComplete));
+		m_currentRadio = StartCoroutine (Co_PlayRadio(_radioDay.AudioClips, _onComplete));
 	}
 
 	// -------------------------------------------------------------------------------------------
@@ -30,16 +32,17 @@ public class AudioManager : MonoSingleton<AudioManager>
 	IEnumerator Co_PlayRadio(AudioClip[] _clips, Action _onComplete)
 	{
 		WaitUntil wait = new WaitUntil(()=>{return !m_sourceRadio.isPlaying;});
-		int idx = 0;
+		ClipIdx = 0;
 		do {
-			Debug.LogFormat("Starting to play audio clip; {0}", idx);
-			m_sourceRadio.clip =_clips [idx++]; 
+			Debug.LogFormat("Starting to play audio clip; {0}", ClipIdx);
+			m_sourceRadio.clip =_clips [ClipIdx++]; 
 			m_sourceRadio.Play ();
 			yield return wait;
-		} while (idx < _clips.Length);
+		} while (ClipIdx < _clips.Length);
 
-		Debug.LogFormat("Finished playing {0} clips", idx);
+		Debug.LogFormat("Finished playing {0} clips", ClipIdx);
 		if (_onComplete != null)
 			_onComplete ();
+		ClipIdx = 0;
 	}
 }

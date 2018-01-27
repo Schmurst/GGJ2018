@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputManager : MonoBehaviour {
+public class InputManager : MonoSingleton<InputManager>
+{
+	void Update ()
+	{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		//Debug Start
+		if (Input.GetKey(KeyCode.RightAlt))
+		{
+			if (Input.GetKeyUp (KeyCode.P))
+				GameManager.Me.SetState (IntroGameState.Me);
+		}
 	}
 }

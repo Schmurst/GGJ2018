@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class CodedTransmissionCalculator : MonoSingleton<CodedTransmissionCalculator>
 {
-	public int DecodeTransmission (ICodedTranmission[] _trans)
+	public bool DidPlayerDecodeTransmissionSuccessfully()
+	{
+		var code = DecodeTransmission (RadioManager.Me.Day.Transmissions);
+		Debug.LogFormat ("Correct Code: {0}", code);
+
+		return true;
+	}
+		
+	int DecodeTransmission (ICodedTranmission[] _trans)
 	{
 		return 0;
 	}

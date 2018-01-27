@@ -28,6 +28,7 @@ public class GameManager : MonoSingleton<GameManager>
 	public class GameManagerEditor : Editor
 	{
 		GameManager me;
+		public override bool RequiresConstantRepaint (){return true;}
 		public override void OnInspectorGUI ()
 		{
 			if (!Application.isPlaying)
@@ -46,7 +47,9 @@ public class GameManager : MonoSingleton<GameManager>
 				me.StartGame ();
 			}
 
-			EditorGUILayout.LabelField ("State: ", me.State.ToString());
+			string msg = string.Format ("State: {0}", me.m_currentState != null ? 
+				me.m_currentState.ToString() : "None");
+			EditorGUILayout.LabelField (msg);
 		}
 	}
 }

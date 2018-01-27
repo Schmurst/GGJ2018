@@ -7,9 +7,11 @@ public class RadioGameState : GameState<RadioGameState>, IGameState
 	public EGameState Type { get { return EGameState.radio; } }
 
 	// -------------------------------------------------------------------------------------------
-	public override void Init ()
+	public override string ToString ()
 	{
-		base.Init ();
+		var radio = RadioManager.Me;
+		return string.Format ("{0}|Week:{1}|Day:{2}|Clip:{3}",
+			Type, radio.WeekIdx, radio.DayIdx, AudioManager.Me.ClipIdx-1);
 	}
 
 	// -------------------------------------------------------------------------------------------

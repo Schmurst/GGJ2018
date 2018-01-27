@@ -12,16 +12,21 @@ public enum EGameState
 	intro,
 	radio,
 	code,
-	transition,
+	success,
 	fail,
 	win,
-
 
 	nullOrLength
 }
 
 public abstract class GameState<T> : MonoSingleton<T> where T:GameState<T>, IGameState
 {
+	public virtual EGameState Type { get; }
+
+	public override string ToString ()
+	{
+		return Type.ToString ();
+	}
 
 	public virtual void EnterState()
 	{

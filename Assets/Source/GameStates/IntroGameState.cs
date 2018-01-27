@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IntroGameState : GameState<IntroGameState>, IGameState
 {
-	public EGameState Type { get { return EGameState.intro; } }
+	public override EGameState Type { get { return EGameState.intro; } }
 
 	[SerializeField] float m_introLengthSeconds ;
 
