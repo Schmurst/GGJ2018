@@ -25,13 +25,11 @@ public class CodeConfig : MonoSingleton<CodeConfig>
 	[SerializeField] OperationType NewsTeamOp;
 	[SerializeField] int NewsTeamVal;
 	[SerializeField] OperationType NewsDavidOp;
-	[SerializeField] int NewsDavidVal;
 
 	[Header("Weather")]	
 	[SerializeField] OperationType WeatherRainOp;
 	[SerializeField] OperationType WeatherSnowOp;
 	[SerializeField] OperationType WeatherSunOp;
-	[SerializeField] OperationType WeatherApocOp;
 
 	[Header("Lotto")]
 	[SerializeField] OperationType LottoAdd3rdOp;
@@ -92,7 +90,7 @@ public class CodeConfig : MonoSingleton<CodeConfig>
 			Calculate (this.NewsTeamOp, ref _result, NewsTeamVal);
 			break;
 		case NewsCode.NewsType.David:
-			Calculate (this.NewsDavidOp, ref _result, NewsDavidVal);
+			Calculate (this.NewsDavidOp, ref _result, 0);
 			break;
 		}
 	}
@@ -112,7 +110,7 @@ public class CodeConfig : MonoSingleton<CodeConfig>
 			Calculate (WeatherSnowOp, ref _result, _temp);
 			break;
 		case WeatherCode.WeatherType.apocalyse:
-			Calculate (WeatherApocOp, ref _result, _temp);
+			_result = 15;
 			break;
 		}
 	}
