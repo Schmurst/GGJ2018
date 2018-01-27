@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114221377080304672}
   - component: {fileID: 114480377112071272}
   m_Layer: 0
-  m_Name: lotto_1
+  m_Name: lotto 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,4 +65,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lottoType: 0
-  LottoNumbers: 
+  LottoNumbers: 030000000f000000130000001a0000001c0000002d000000
