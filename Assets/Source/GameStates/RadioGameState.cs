@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RadioGameState : GameState<RadioGameState>, IGameState
 {
-	public EGameState Type { get { return EGameState.radio; } }
+	public override EGameState Type { get { return EGameState.radio; } }
 
 	// -------------------------------------------------------------------------------------------
 	public override string ToString ()

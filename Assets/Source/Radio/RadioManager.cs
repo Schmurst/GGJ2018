@@ -20,7 +20,7 @@ public class RadioManager : MonoSingleton<RadioManager>
 	}
 
 	// -------------------------------------------------------------------------------------------
-	void IncrementToNextDay()
+	public void IncrementToNextDay()
 	{
 		if (DayIdx + 1 >= Week.Days.Length)
 		{
@@ -36,7 +36,6 @@ public class RadioManager : MonoSingleton<RadioManager>
 	// -------------------------------------------------------------------------------------------
 	void OnBroadCastComplete()
 	{
-		IncrementToNextDay ();
 		RadioGameState.Me.OnRadioDayBroadcastComplete ();
 	}
 

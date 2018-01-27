@@ -17,6 +17,15 @@ public class AudioManager : MonoSingleton<AudioManager>
 	}
 
 	// -------------------------------------------------------------------------------------------
+	public void Debug_SkipAudio()
+	{
+		if (GameManager.IS_DEBUG && m_currentRadio != null)
+		{
+			m_sourceRadio.Stop ();
+		}
+	}
+
+	// -------------------------------------------------------------------------------------------
 	public void PlayRadio(RadioDay _radioDay, Action _onComplete)
 	{
 		m_currentRadio = StartCoroutine (Co_PlayRadio(_radioDay.AudioClips, _onComplete));

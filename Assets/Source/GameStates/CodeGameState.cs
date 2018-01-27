@@ -8,14 +8,17 @@ public class CodeGameState : GameState<CodeGameState>, IGameState
 
 	[SerializeField] float m_initialDelay = 2f;
 
+	float m_tStart, m_tEnd;
+
+	public override string ToString ()
+	{
+		return string.Format ("{0}|timeLeft:{1}", Type, m_tEnd - m_tStart);
+	}
+
 	public override void EnterState ()
 	{
 		base.EnterState ();
-	}
-
-	public override void ExitState ()
-	{
-		base.ExitState ();
+		StartCoroutine (Co_StartCountDown ());
 	}
 
 	IEnumerator Co_StartCountDown()
@@ -26,7 +29,9 @@ public class CodeGameState : GameState<CodeGameState>, IGameState
 		// enable code input controls
 
 		// Start CountDown
-		yield return new WaitForSeconds (RadioManager.Me.Day.TimeLimit);
+		m_tStart = Time.time;
+		m_tEnd = m_tStart + ((!GameManager.IS_DEBUG) ? RadioManager.Me.Day.TimeLimit : 2f);
+		yield return new WaitUntil (() =>{return Time.time > m_tEnd;});
 		bool isCorrect = CodedTransmissionCalculator.Me.DidPlayerDecodeTransmissionSuccessfully ();
 		GameManager.Me.SetState(isCorrect ? (IGameState)SuccessGameState.Me : (IGameState)FailGameState.Me);
 	}

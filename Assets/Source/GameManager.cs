@@ -5,8 +5,11 @@ using UnityEditor;
 
 public class GameManager : MonoSingleton<GameManager>
 {
+	public static bool IS_DEBUG = true;
+
 	public EGameState PrevState { get ; protected set; }
 	public EGameState State { get { return m_currentState != null ? m_currentState.Type : EGameState.nullOrLength; } }
+
 	IGameState m_currentState;
 
 	// -------------------------------------------------------------------------------------------
@@ -43,9 +46,9 @@ public class GameManager : MonoSingleton<GameManager>
 				return;
 
 			if (GUILayout.Button("Start Intro"))
-			{
 				me.StartGame ();
-			}
+			if (GUILayout.Button ("Skip Track"))
+				AudioManager.Me.Debug_SkipAudio ();
 
 			string msg = string.Format ("State: {0}", me.m_currentState != null ? 
 				me.m_currentState.ToString() : "None");
