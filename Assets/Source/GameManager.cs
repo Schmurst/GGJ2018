@@ -5,6 +5,7 @@ using UnityEditor;
 
 public class GameManager : MonoSingleton<GameManager>
 {
+	public EGameState PrevState { get ; protected set; }
 	public EGameState State { get { return m_currentState != null ? m_currentState.Type : EGameState.nullOrLength; } }
 	IGameState m_currentState;
 
@@ -17,6 +18,7 @@ public class GameManager : MonoSingleton<GameManager>
 	// -------------------------------------------------------------------------------------------
 	public void SetState(IGameState _state)
 	{
+		PrevState = State;
 		_state.EnterState ();
 		m_currentState = _state;
 	}
