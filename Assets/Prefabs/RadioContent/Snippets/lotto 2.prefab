@@ -9,30 +9,30 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1950934925302168}
+  m_RootGameObject: {fileID: 1773004761625230}
   m_IsPrefabParent: 1
---- !u!1 &1950934925302168
+--- !u!1 &1773004761625230
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4227506041989282}
-  - component: {fileID: 114954231134388162}
+  - component: {fileID: 4723003697063754}
+  - component: {fileID: 114221377080304672}
   m_Layer: 0
-  m_Name: RadioWeek1
+  m_Name: RadioSnippet_lotto 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4227506041989282
+--- !u!4 &4723003697063754
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1950934925302168}
+  m_GameObject: {fileID: 1773004761625230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,22 +40,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114954231134388162
+--- !u!114 &114221377080304672
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1950934925302168}
+  m_GameObject: {fileID: 1773004761625230}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b8e1b31faeb74b23872b2a213060ddb, type: 3}
+  m_Script: {fileID: 11500000, guid: 7180137a25417438a9202a60af598f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_days:
-  - {fileID: 114706958507762380, guid: af3ae21d2633ce64f97a7eb7e99db7b1, type: 2}
-  - {fileID: 114706958507762380, guid: 3ad54a8f675268845934b656add675dc, type: 2}
-  - {fileID: 114706958507762380, guid: 1927facacaa902c4996b3d9eff447c1e, type: 2}
-  - {fileID: 114706958507762380, guid: 9e4734018f703b1458c095b6830c0b53, type: 2}
-  - {fileID: 114706958507762380, guid: 0c6dc9177128eed4f923e3db88592f78, type: 2}
-  - {fileID: 114706958507762380, guid: 91a37f53124e5ca4686e09ff34d7eeaa, type: 2}
-  - {fileID: 114706958507762380, guid: e9c24aeabb4283847aee13f62e97a2f2, type: 2}
+  m_clip: {fileID: 8300000, guid: 843561c85757848acbd4b119ff9d88ff, type: 3}
