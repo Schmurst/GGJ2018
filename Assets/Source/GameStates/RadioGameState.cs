@@ -2,15 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RadioGameState : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class RadioGameState : GameState<RadioGameState>, IGameState
+{
+	public EGameState Type { get { return EGameState.radio; } }
 }

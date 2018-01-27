@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class IntroGameState : GameState<IntroGameState>, IGameState
 {
+	public EGameState Type { get { return EGameState.intro; } }
+
 	public override void Init ()
 	{
 		base.Init ();

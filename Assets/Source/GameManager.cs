@@ -5,16 +5,21 @@ using UnityEditor;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-	public enum EGameState
+	public EGameState State { get { return m_currentState.Type; } }
+	IGameState m_currentState;
+
+	// -------------------------------------------------------------------------------------------
+	void StartGame()
 	{
-		intro,
-		radio,
-		code,
-		transition,
-		outro
+		SetState (IntroGameState.Me);
 	}
 
-	public EGameState State { get; protected set; }
+	// -------------------------------------------------------------------------------------------
+	void SetState(IGameState _state)
+	{
+		_state.EnterState ();
+		m_currentState = _state;
+	}
 
 	// -------------------------------------------------------------------------------------------
 	[CustomEditor(typeof(GameManager))]	
