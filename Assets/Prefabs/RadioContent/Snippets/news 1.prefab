@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4017557305216300}
   - component: {fileID: 114953446587552014}
   m_Layer: 0
-  m_Name: RadioSnippet_news 1
+  m_Name: news 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

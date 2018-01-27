@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_snippets:
-  - {fileID: 114953446587552014, guid: 03a440802e57d458abd4ca39aa251ed7, type: 2}
-  - {fileID: 114221377080304672, guid: 56bd131231b9341a79c2598147112fba, type: 2}
+  - {fileID: 114953446587552014, guid: 8b7723771b645b047b5d267df4768e3c, type: 2}
+  - {fileID: 114221377080304672, guid: acb36cc1ac7be794d984129c9cf26843, type: 2}
   m_countDownTrack: {fileID: 0}
   m_timeLimit: 30

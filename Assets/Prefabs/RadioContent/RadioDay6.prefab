@@ -52,9 +52,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_snippets:
-  - {fileID: 114953446587552014, guid: 03a440802e57d458abd4ca39aa251ed7, type: 2}
-  - {fileID: 114221377080304672, guid: 56bd131231b9341a79c2598147112fba, type: 2}
+  - {fileID: 114953446587552014, guid: 5f7ae0b12b83dec47a1f210da7c12ad0, type: 2}
+  - {fileID: 114221377080304672, guid: 0d213a406b6a59a4ba713566ae705c1a, type: 2}
+  - {fileID: 114221377080304672, guid: 5e48e8ad324b02f44a7117f3db90b477, type: 2}
   - {fileID: 114428949856348330, guid: 05f0606d5f57d47c8b43f33403db11bd, type: 2}
-  - {fileID: 114948992282924770, guid: b033386d5ad6f46c09b7353d0687b12c, type: 2}
   m_countDownTrack: {fileID: 0}
   m_timeLimit: 30

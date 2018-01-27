@@ -20,8 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4723003697063754}
   - component: {fileID: 114221377080304672}
+  - component: {fileID: 114480377112071272}
   m_Layer: 0
-  m_Name: RadioSnippet_lotto 1
+  m_Name: lotto_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,3 +53,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_clip: {fileID: 8300000, guid: 843561c85757848acbd4b119ff9d88ff, type: 3}
+--- !u!114 &114480377112071272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1773004761625230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a44c499f57354af9bec1a10d870a96f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lottoType: 0
+  LottoNumbers: 
