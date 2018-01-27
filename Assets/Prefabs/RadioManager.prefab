@@ -52,4 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_weeks:
-  - {fileID: 0}
+  - {fileID: 114954231134388162, guid: ddc864ea26d284757854f338dfe2c46d, type: 2}
+  - {fileID: 114185842137801716, guid: 712c796f54ec74f589eae769e583fa2d, type: 2}
+  - {fileID: 114435659857145246, guid: a92ee1b694283458889bcaca503df08b, type: 2}
