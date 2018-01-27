@@ -36,5 +36,8 @@ public class AudioManager : MonoSingleton<AudioManager>
 			m_sourceRadio.Play ();
 			yield return wait;
 		} while (idx < _clips.Length);
+
+		if (_onComplete != null)
+			_onComplete ();
 	}
 }

@@ -6,6 +6,7 @@ using System.Linq;
 public class RadioDay : MonoBehaviour
 {
 	[SerializeField] RadioSnippet[] m_snippets;	
+	[SerializeField] RadioSnippet m_countDownTrack;
 
 	public AudioClip[] GetClips()
 	{

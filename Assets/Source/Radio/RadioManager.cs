@@ -17,7 +17,7 @@ public class RadioManager : MonoSingleton<RadioManager>
 	}
 
 	// -------------------------------------------------------------------------------------------
-	void PlayDay(int _idx)
+	void PlayDay()
 	{
 
 	}
@@ -37,7 +37,7 @@ public class RadioManager : MonoSingleton<RadioManager>
 			if (GUILayout.Button ("Play Day 1"))
 			{
 				me.Week = me.Day = 0;
-				me.PlayDay (me.Day);
+				me.PlayDay ();
 			}
 
 			EditorGUILayout.LabelField ("Week", me.Week.ToString ());
