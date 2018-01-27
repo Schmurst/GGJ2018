@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CodedTransmissionCalculator : MonoSingleton<CodedTransmissionCalculator>
+public class CodeCalculator : MonoSingleton<CodeCalculator>
 {
 	public bool DidPlayerDecodeTransmissionSuccessfully()
 	{
@@ -14,6 +14,9 @@ public class CodedTransmissionCalculator : MonoSingleton<CodedTransmissionCalcul
 		
 	int DecodeTransmission (ICodedTranmission[] _trans)
 	{
+		// Get Date
+
+
 		return 0;
 	}
 }

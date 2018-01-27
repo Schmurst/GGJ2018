@@ -19,7 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4709277312038048}
-  - component: {fileID: 114488511081899082}
+  - component: {fileID: 114442013934972634}
+  - component: {fileID: 114077092096530108}
   m_Layer: 0
   m_Name: CodedTransmissionCalculator
   m_TagString: Untagged
@@ -40,7 +41,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114488511081899082
+--- !u!114 &114077092096530108
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -48,6 +49,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1832342698283326}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec8333ef3ea534f28a6a2e29e21d3171, type: 3}
+  m_Script: {fileID: 11500000, guid: ec4266bd1729a432f8ff8847fce8a27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114442013934972634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1832342698283326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b56a09915cfc46478257af5da3c97a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

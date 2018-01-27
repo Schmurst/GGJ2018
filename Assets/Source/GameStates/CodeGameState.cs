@@ -32,7 +32,7 @@ public class CodeGameState : GameState<CodeGameState>, IGameState
 		m_tStart = Time.time;
 		m_tEnd = m_tStart + ((!GameManager.IS_DEBUG) ? RadioManager.Me.Day.TimeLimit : 2f);
 		yield return new WaitUntil (() =>{return Time.time > m_tEnd;});
-		bool isCorrect = CodedTransmissionCalculator.Me.DidPlayerDecodeTransmissionSuccessfully ();
+		bool isCorrect = CodeCalculator.Me.DidPlayerDecodeTransmissionSuccessfully ();
 		GameManager.Me.SetState(isCorrect ? (IGameState)SuccessGameState.Me : (IGameState)FailGameState.Me);
 	}
 }

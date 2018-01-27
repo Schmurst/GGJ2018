@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SuccessGameState : GameState<SuccessGameState>, IGameState
 {
-	public EGameState Type { get { return EGameState.success; } }
+	public override EGameState Type { get { return EGameState.success; } }
 
 	[SerializeField] float m_dayToDayDelay =2f;
 

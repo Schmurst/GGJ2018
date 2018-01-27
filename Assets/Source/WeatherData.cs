@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeatherData : MonoBehaviour
+public class WeatherData : MonoBehaviour, ICodedTranmission
 {
-	public enum weatherType
+	public enum WeatherType
 	{
-		sunny,
+		sun,
 		rain,
-		fog,
-		cloud
+		snow,
+		apocalyse,
 	}
 
-	public weatherType type;
+	public WeatherType Type;
+	public int Temperature = 0;
+
+	public int CalculateCode (int _val)
+	{
+		return 0;
+	}
 }

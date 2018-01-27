@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ICodedTranmission
+public class CodeConfig : MonoSingleton<CodeConfig>
 {
-	int CalculateCode (int _val);
+		
 }
