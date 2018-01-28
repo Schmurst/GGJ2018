@@ -75,6 +75,12 @@ public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T
 	/// </summary>
 	public virtual void Init(){}
 
+	void OnDestroy()
+	{
+		m_Instance = null;
+		_isInitialized = false;
+	}
+
 	/// Make sure the instance isn't referenced anymore when the user quit, just in case.
 	private void OnApplicationQuit()
 	{
