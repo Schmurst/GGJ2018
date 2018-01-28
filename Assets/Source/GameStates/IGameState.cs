@@ -15,6 +15,7 @@ public enum EGameState
 	success,
 	fail,
 	win,
+	transition,
 
 	nullOrLength
 }

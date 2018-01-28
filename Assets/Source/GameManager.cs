@@ -10,7 +10,24 @@ public class GameManager : MonoSingleton<GameManager>
 	public EGameState PrevState { get ; protected set; }
 	public EGameState State { get { return m_currentState != null ? m_currentState.Type : EGameState.nullOrLength; } }
 
+	public float InitialWait = 5f;
+
 	IGameState m_currentState;
+
+	// -------------------------------------------------------------------------------------------
+	void Start()
+	{
+		TransitionGameState.Me.ForceDown ();
+		TransitionGameState.Me.OnComplete = () => {SetState (RadioGameState.Me);};
+		SetState(TransitionGameState.Me);
+	}
+
+	// -------------------------------------------------------------------------------------------
+	IEnumerator Co_WaitThenDo(float _secs, System.Action _do)
+	{
+		yield return new WaitForSeconds (_secs);
+		_do ();
+	}
 
 	// -------------------------------------------------------------------------------------------
 	void StartGame()
