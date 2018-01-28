@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEditor;
 
 public class CodeConfig : MonoSingleton<CodeConfig>
 {
@@ -14,7 +15,7 @@ public class CodeConfig : MonoSingleton<CodeConfig>
 		david
 	}
 
-	static int DateStart = 25; //25th Feb
+	public int DateStart = 25; //25th Feb
 
 	//[Header("Misc")]	
 
@@ -46,7 +47,11 @@ public class CodeConfig : MonoSingleton<CodeConfig>
 	// -------------------------------------------------------------------------------------------
 	public int GetDate()
 	{
-		return (DateStart + RadioManager.Me.WeekIdx * 7 + RadioManager.Me.DayIdx) % 30;
+		int val = DateStart + RadioManager.Me.DayIdx + RadioManager.Me.WeekIdx * 7;
+		if (val >= 30)
+			val -= 29;
+
+		return val;
 	}
 
 	// -------------------------------------------------------------------------------------------
@@ -156,6 +161,27 @@ public class CodeConfig : MonoSingleton<CodeConfig>
 				}
 			}
 			break;
+		}
+	}
+
+	// -------------------------------------------------------------------------------------------
+	[CustomEditor(typeof(CodeConfig))]	
+	public class CodeConfigEditor : Editor
+	{
+		CodeConfig me;
+		public override bool RequiresConstantRepaint (){return true;}
+		public override void OnInspectorGUI ()
+		{
+			if (me == null)
+				me = CodeConfig.Me;
+			if (me == null)
+				return;
+
+			if (GUILayout.Button("Test Date"))
+			{
+				Debug.LogErrorFormat("date:{0}", me.GetDate ());
+			}
+			DrawDefaultInspector ();
 		}
 	}
 }
