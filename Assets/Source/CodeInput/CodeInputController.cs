@@ -30,7 +30,7 @@ public class CodeInputController : MonoSingleton<CodeInputController>
 
 	void ManualCodeEnter()
 	{
-
+		CodeGameState.Me.OnManualCodeInput ();
 	}
 
 	public void ResetAllDigits()

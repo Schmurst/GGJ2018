@@ -10,6 +10,12 @@ public class DraggableGUIManager : MonoSingleton<DraggableGUIManager>
 	[SerializeField] GameObject m_codeBook1;
 	[SerializeField] GameObject m_codeBook2;
 	[SerializeField] GameObject m_codeBook3;
+
+	[SerializeField] GameObject post_it1;
+	[SerializeField] GameObject post_it2;
+	[SerializeField] GameObject post_it3;
+	[SerializeField] GameObject post_it4;
+
 	[SerializeField] RectTransform m_parent;
 
 	public override void Init ()
@@ -38,12 +44,18 @@ public class DraggableGUIManager : MonoSingleton<DraggableGUIManager>
 		}
 	}
 
-	public void SpawnStartDraggables()
+	public void SpawnStartDraggables(int weekIdx)
 	{
 		GameObject obj;
 		DraggableGUI gui;
 
-		var toSpawn = new List<GameObject> {m_codeBook1};
+		List<GameObject> toSpawn;
+		if (weekIdx == 0)
+			toSpawn = new List<GameObject> {m_codeBook1, post_it1, post_it2, post_it4};
+		else if (weekIdx == 1)
+			toSpawn = new List<GameObject> {m_codeBook2, post_it3};
+		else
+			toSpawn = new List<GameObject> {m_codeBook3};
 
 		foreach (var item in toSpawn)
 		{

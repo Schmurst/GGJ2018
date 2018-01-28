@@ -6,9 +6,11 @@ public class CodeGameState : GameState<CodeGameState>, IGameState
 {
 	public override EGameState Type { get { return EGameState.code; } }
 
-	[SerializeField] float m_initialDelay = 2f;
+	float m_initialDelay = 1f;
 
 	float m_tStart, m_tEnd;
+
+	AudioClip clip;
 
 	public override string ToString ()
 	{
@@ -21,18 +23,25 @@ public class CodeGameState : GameState<CodeGameState>, IGameState
 		StartCoroutine (Co_StartCountDown ());
 	}
 
+	bool m_isManualInput = false;
+	public void OnManualCodeInput()
+	{
+		m_isManualInput = true;
+	}
+
 	IEnumerator Co_StartCountDown()
 	{
 		// play nice wait maybe kick off some animations
+		AudioManager.Me.PlayRadio(clip, ()=>{});
 		yield return new WaitForSeconds (m_initialDelay);
-
-		// enable code input controls
 
 		// Start CountDown
 		m_tStart = Time.time;
 		m_tEnd = m_tStart + ((!GameManager.IS_DEBUG) ? RadioManager.Me.Day.TimeLimit : 10f);
-		yield return new WaitUntil (() =>{return Time.time > m_tEnd;});
+		yield return new WaitUntil (() =>{return m_isManualInput || Time.time > m_tEnd;});
+		m_isManualInput = false;
 		bool isCorrect = CodeCalculator.Me.DidPlayerDecodeTransmissionSuccessfully ();
 		GameManager.Me.SetState(isCorrect ? (IGameState)SuccessGameState.Me : (IGameState)FailGameState.Me);
+		AudioManager.Me.Debug_SkipAudio();
 	}
 }
