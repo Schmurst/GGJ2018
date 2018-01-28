@@ -75,6 +75,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1463349222866956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4130677005519690}
+  - component: {fileID: 114988740521946332}
+  m_Layer: 0
+  m_Name: TransitionState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1514612736342838
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,6 +139,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4130677005519690
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1463349222866956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4719738470654566}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4205996558326470
 Transform:
   m_ObjectHideFlags: 1
@@ -178,6 +207,7 @@ Transform:
   - {fileID: 4937473035183778}
   - {fileID: 4205996558326470}
   - {fileID: 4962923332569772}
+  - {fileID: 4130677005519690}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -231,6 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be011e0cccdad452bb3b9181c33fe1a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_dayToDayDelay: 2
 --- !u!114 &114208488463732266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -253,6 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1b6cce6726a74d1b97f352b5a98cfda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InitialWait: 5
 --- !u!114 &114521113762835632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -299,3 +331,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialDelay: 2
+--- !u!114 &114988740521946332
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1463349222866956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805ea1dd2d81d47209c7bf47aed61a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_mask: {fileID: 0}
+  fadeSecs: 2
+  holdSecs: 2
+  FulUpPos: 0
+  FulDownPos: 0

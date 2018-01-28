@@ -10,6 +10,7 @@ public class DraggableGUIManager : MonoSingleton<DraggableGUIManager>
 	[SerializeField] GameObject m_codeBook1;
 	[SerializeField] GameObject m_codeBook2;
 	[SerializeField] GameObject m_codeBook3;
+	[SerializeField] RectTransform m_parent;
 
 	public override void Init ()
 	{
@@ -34,6 +35,21 @@ public class DraggableGUIManager : MonoSingleton<DraggableGUIManager>
 		{
 			m_current.DeSelect ();
 			m_current = null;
+		}
+	}
+
+	public void SpawnStartDraggables()
+	{
+		GameObject obj;
+		DraggableGUI gui;
+
+		var toSpawn = new List<GameObject> {m_codeBook1};
+
+		foreach (var item in toSpawn)
+		{
+			obj = Instantiate<GameObject> (item, m_parent);
+			gui = obj.GetComponent<DraggableGUI> ();
+			((RectTransform)gui.transform).anchoredPosition = gui.SpawnPoint;
 		}
 	}
 }

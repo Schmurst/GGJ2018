@@ -19,6 +19,8 @@ public class DraggableGUI : MonoBehaviour
 
 	[SerializeField] Image m_img;
 
+	public Vector2 SpawnPoint;
+
 	InputState m_state;
 	Vector2 m_grabPosOffset;
 
