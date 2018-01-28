@@ -19,6 +19,12 @@ public class TransitionGameState : GameState<TransitionGameState>, IGameState
 	bool isForceDown = false;
 
 	// -------------------------------------------------------------------------------------------
+	void Awake()
+	{
+
+	}
+
+	// -------------------------------------------------------------------------------------------
 	public void ForceDown()
 	{
 		isForceDown = true;
@@ -51,6 +57,10 @@ public class TransitionGameState : GameState<TransitionGameState>, IGameState
 		m_mask.color = Color.white;
 		pcnt = 0f;
 
+		if (OnFaded != null)
+			OnFaded ();
+		OnFaded = null;
+
 		isForceDown = false;
 		while (pcnt < 1f)
 		{
@@ -62,6 +72,10 @@ public class TransitionGameState : GameState<TransitionGameState>, IGameState
 		m_mask.color = Color.clear;
 		m_mask.enabled = false;
 		m_mask.raycastTarget = false;
+
+		if (OnComplete != null)
+			OnComplete ();
+		OnComplete = null;
 	}
 
 	// -------------------------------------------------------------------------------------------

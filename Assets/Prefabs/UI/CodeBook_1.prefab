@@ -217,6 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_img: {fileID: 114360013239616498}
+  SpawnPoint: {x: -350, y: -186}
 --- !u!222 &222913983697965328
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -18,6 +18,7 @@ public class GameManager : MonoSingleton<GameManager>
 	void Start()
 	{
 		TransitionGameState.Me.ForceDown ();
+		TransitionGameState.Me.OnFaded = DraggableGUIManager.Me.SpawnStartDraggables;
 		TransitionGameState.Me.OnComplete = () => {SetState (RadioGameState.Me);};
 		SetState(TransitionGameState.Me);
 	}
