@@ -124,7 +124,8 @@ public class CodeConfig : MonoSingleton<CodeConfig>
 			Calculate (SportScoreDiffOp, ref _result, _value);
 			break;
 		case SportCode.SportType.teamSport:
-			Calculate (SportTeamOp, ref _result, SportSoloVal);
+			Calculate (_value >= 0 ? SportTeamOp : SportSoloOp, ref _result, 
+				_value >= 0 ? SportTeamVal : SportSoloVal);
 			break;
 		case SportCode.SportType.zarot:
 			Calculate (NewsZarotOp, ref _result, NewsZarotVal);
