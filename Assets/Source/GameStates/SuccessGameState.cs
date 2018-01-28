@@ -21,7 +21,7 @@ public class SuccessGameState : GameState<SuccessGameState>, IGameState
 		yield return new WaitForSeconds (m_dayToDayDelay);
 		RadioManager.Me.IncrementToNextDay ();
 		TransitionGameState.Me.OnFaded = () => {
-			DraggableGUIManager.Me.SpawnStartDraggables(RadioManager.Me.DayIdx);
+			DraggableGUIManager.Me.SpawnStartDraggables(RadioManager.Me.WeekIdx);
 		};
 
 		TransitionGameState.Me.OnComplete = () => {GameManager.Me.SetState (RadioGameState.Me);};
