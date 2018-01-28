@@ -9,9 +9,10 @@ public class CodeCalculator : MonoSingleton<CodeCalculator>
 	public bool DidPlayerDecodeTransmissionSuccessfully()
 	{
 		var code = DecodeTransmission (RadioManager.Me.Day.GetTransmissions());
-		Debug.LogFormat ("Correct Code: {0}", code);
+		var playerInput = CodeInputController.Me.GetPlayerCode ();
+		Debug.LogFormat ("Correct Code: {0}|Player Code: {1}", code, playerInput);
 
-		return true;
+		return code == playerInput;
 	}
 		
 	// -------------------------------------------------------------------------------------------
