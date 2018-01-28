@@ -21,6 +21,8 @@ public class CodeCalculator : MonoSingleton<CodeCalculator>
 		_trans = _trans.OrderBy (x=>(int)x.Type).ToArray();
 
 		var value = RadioManager.Me.WeekIdx * 7 + RadioManager.Me.DayIdx + 1;
+		if (RadioManager.Me.WeekIdx > 0)
+			value += 5;
 
 		for (int i = 0; i < _trans.Length; i++)
 		{
