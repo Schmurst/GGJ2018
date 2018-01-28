@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_img: {fileID: 114525452744915796}
-  SpawnPoint: {x: 0, y: 0}
+  SpawnPoint: {x: -552, y: -129}
 --- !u!114 &114739067882816632
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -3311,7 +3311,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 114860231130276868}
+  m_TargetGraphic: {fileID: 114569040539702390}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -3968,8 +3968,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_codeBook1: {fileID: 1952599672480152, guid: 6d6170d9bdd5f439fbee7f50024ba9c7,
     type: 2}
-  m_codeBook2: {fileID: 0}
-  m_codeBook3: {fileID: 0}
+  m_codeBook2: {fileID: 1814123680476840, guid: 7885590923315d243810fd4e0abfe3bb,
+    type: 2}
+  m_codeBook3: {fileID: 1084374026702394, guid: 771e4cded47133b46841146c165c36ba,
+    type: 2}
+  post_it1: {fileID: 1790470239457026, guid: c5b43a7be761d014f83188f6d2891598, type: 2}
+  post_it2: {fileID: 1237089161246454, guid: df1d244fca9053c4083ba7297303d8a1, type: 2}
+  post_it3: {fileID: 1359178976485702, guid: 5608310c458fd5f4387ff9d3db4edbdc, type: 2}
+  post_it4: {fileID: 1364445249326106, guid: fa91faf72df75f64eb154bf32ecc9cc9, type: 2}
   m_parent: {fileID: 224248434368050232}
 --- !u!114 &114972154601438388
 MonoBehaviour:

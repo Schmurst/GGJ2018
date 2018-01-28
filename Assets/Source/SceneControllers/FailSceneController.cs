@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class FailSceneController : MonoBehaviour {
-
-	// Use this for initialization
+public class FailSceneController : MonoBehaviour
+{
 	void Start () {
-		
+		StartCoroutine (Co_wait ());	
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	IEnumerator Co_wait()
+	{
+		yield return new WaitForSeconds (5f);
+		SceneManager.LoadScene ("intro");
 	}
 }
