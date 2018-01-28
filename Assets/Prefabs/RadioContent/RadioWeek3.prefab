@@ -51,4 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b8e1b31faeb74b23872b2a213060ddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_days: []
+  m_days:
+  - {fileID: 114706958507762380, guid: 740d55b1601892d4f815108f3be7eac2, type: 2}
+  - {fileID: 114706958507762380, guid: 8594727437a604c43bb0154949bb2059, type: 2}
+  - {fileID: 114706958507762380, guid: b698f929a64aad443ae4d06fc714ab41, type: 2}
+  - {fileID: 114706958507762380, guid: d744aa636e003b4489d3e8f297102952, type: 2}
+  - {fileID: 114706958507762380, guid: 8cfe162a0814de543b3fe0935300093e, type: 2}
+  - {fileID: 114706958507762380, guid: 2ca6fb9fe7a622d4981ba8b3fdfd33e5, type: 2}
+  - {fileID: 114706958507762380, guid: a11e09bf71a8c9149b9b0a32df7010cd, type: 2}

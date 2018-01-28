@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4190219471543542}
   - component: {fileID: 114706958507762380}
   m_Layer: 0
-  m_Name: RadioDay7
+  m_Name: RadioDay5Week3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_snippets:
-  - {fileID: 114953446587552014, guid: 03a440802e57d458abd4ca39aa251ed7, type: 2}
-  - {fileID: 114221377080304672, guid: 56bd131231b9341a79c2598147112fba, type: 2}
+  - {fileID: 114953446587552014, guid: cc28b273757d47f48af7c1a7c0eeb0e4, type: 2}
+  - {fileID: 114221377080304672, guid: 09039d167f0b8214fb7786d35ff60169, type: 2}
   m_countDownTrack: {fileID: 0}
   m_timeLimit: 30
