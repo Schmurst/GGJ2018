@@ -4,13 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CodeDigitController : MonoBehaviour
+public class CodeSignController : MonoBehaviour
 {
 	[SerializeField] Button m_buttonUp;
 	[SerializeField] Button m_buttonDown;
 	[SerializeField] RectTransform m_scrollTrans;
 
-	public int Value;
+	public float Zero;
+	public float Height;
+	public float UpperLimit;
+	public float UpperReset;
+	public float LowerLimit;
+	public float LowerReset;
+
+	public bool Value = true;
 	float m_targetPosition;
 
 	public void Initialise()
@@ -22,32 +29,32 @@ public class CodeDigitController : MonoBehaviour
 
 	void ValueUp()
 	{
-		Value = Value < 9 ? Value + 1 : 0;
-		m_targetPosition = m_targetPosition - CodeInputController.Me.DigitHeight;
+		Value = !Value;
+		m_targetPosition = m_targetPosition - Height;
 		UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null);
 	}
 
 	void ValueDown()
 	{
-		Value = Value > 0 ? Value - 1 : 9;
-		m_targetPosition = m_targetPosition + CodeInputController.Me.DigitHeight;
+		Value = !Value;
+		m_targetPosition = m_targetPosition + Height;
 		UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null);
 	}
 
 	public void ResetToZero()
 	{
-		m_scrollTrans.anchoredPosition = new Vector2(0f, CodeInputController.Me.DigitZeroPos);
+		m_scrollTrans.anchoredPosition = new Vector2(0f, Zero);
 		m_targetPosition = m_scrollTrans.localPosition.y;
-		Value = 0;
+		Value = true;
 	}
 
 	void Update ()
 	{
 		var pos = m_scrollTrans.anchoredPosition;
-		if (pos.y > CodeInputController.Me.DigitUpperLimit)
-			m_targetPosition = pos.y = CodeInputController.Me.DigitUpperReset;
-		if (pos.y < CodeInputController.Me.DigitLowerLimit)
-			m_targetPosition = pos.y = CodeInputController.Me.DigitLowerReset;
+		if (pos.y > UpperLimit)
+			m_targetPosition = pos.y = UpperReset;
+		if (pos.y < LowerLimit)
+			m_targetPosition = pos.y = LowerReset;
 
 		pos = Vector2.Lerp (pos, Vector2.up * m_targetPosition, CodeInputController.Me.DigitLerpPower);
 
