@@ -24,12 +24,14 @@ public class CodeDigitController : MonoBehaviour
 	{
 		Value++;
 		m_targetPosition = m_targetPosition - CodeInputController.Me.DigitHeight;
+		UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null);
 	}
 
 	void ValueDown()
 	{
 		Value--;
 		m_targetPosition = m_targetPosition + CodeInputController.Me.DigitHeight;
+		UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null);
 	}
 
 	public void ResetToZero()
