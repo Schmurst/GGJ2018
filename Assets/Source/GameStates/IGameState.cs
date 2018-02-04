@@ -22,7 +22,7 @@ public enum EGameState
 
 public abstract class GameState<T> : MonoSingleton<T> where T:GameState<T>, IGameState
 {
-	public virtual EGameState Type { get; }
+	public abstract EGameState Type{ get; }
 
 	public override string ToString ()
 	{

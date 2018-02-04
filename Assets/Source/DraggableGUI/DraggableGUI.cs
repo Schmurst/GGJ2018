@@ -38,6 +38,7 @@ public class DraggableGUI : MonoBehaviour
 		m_state = InputState.grabbed;
 		Debug.LogFormat ("MousePos: {0}", Input.mousePosition);
 		m_grabPosOffset = this.transform.position - Input.mousePosition;
+		transform.SetAsLastSibling ();
 	}
 
 	void Update()
