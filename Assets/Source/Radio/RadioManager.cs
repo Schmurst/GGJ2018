@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using System;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class RadioManager : MonoSingleton<RadioManager>
 {
@@ -45,6 +47,7 @@ public class RadioManager : MonoSingleton<RadioManager>
 		AudioManager.Me.PlayRadio (Day, OnBroadCastComplete);
 	}
 
+	#if UNITY_EDITOR
 	// -------------------------------------------------------------------------------------------
 	[CustomEditor(typeof(RadioManager))]	
 	public class RadioManagerEditor : Editor
@@ -68,5 +71,6 @@ public class RadioManager : MonoSingleton<RadioManager>
 
 			DrawDefaultInspector ();
 		}
-	}
+ 	}
+	#endif
 }

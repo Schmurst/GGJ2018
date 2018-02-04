@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 public class GameManager : MonoSingleton<GameManager>
 {
@@ -44,6 +46,7 @@ public class GameManager : MonoSingleton<GameManager>
 		m_currentState = _state;
 	}
 
+	#if UNITY_EDITOR
 	// -------------------------------------------------------------------------------------------
 	[CustomEditor(typeof(GameManager))]	
 	public class GameManagerEditor : Editor
@@ -73,4 +76,5 @@ public class GameManager : MonoSingleton<GameManager>
 			EditorGUILayout.LabelField (msg);
 		}
 	}
+	#endif
 }

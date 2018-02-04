@@ -59,10 +59,10 @@ public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T
 		} else if (m_Instance != this) {
 			Debug.LogError ("Another instance of " + GetType () + " is already exist! Destroying self...");
 			DestroyImmediate (this);
-			return;
+			m_Instance = (T)this;
+			_isInitialized = false;
 		}
 		if (!_isInitialized) {
-			DontDestroyOnLoad(gameObject);
 			_isInitialized = true;
 			m_Instance.Init ();
 		}

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CodeGameState : GameState<CodeGameState>, IGameState
@@ -10,7 +11,7 @@ public class CodeGameState : GameState<CodeGameState>, IGameState
 
 	float m_tStart, m_tEnd;
 
-	AudioClip clip;
+	[SerializeField] AudioClip[] clips;
 
 	public override string ToString ()
 	{
@@ -32,14 +33,16 @@ public class CodeGameState : GameState<CodeGameState>, IGameState
 	IEnumerator Co_StartCountDown()
 	{
 		// play nice wait maybe kick off some animations
+		var clip = clips[Random.Range(0, clips.Length)];
 		AudioManager.Me.PlayRadio(clip, ()=>{});
-		yield return new WaitForSeconds (m_initialDelay);
 
 		// Start CountDown
+		yield return new WaitForSeconds (m_initialDelay);
 		m_tStart = Time.time;
-		m_tEnd = m_tStart + ((!GameManager.IS_DEBUG) ? RadioManager.Me.Day.TimeLimit : 10f);
+		m_tEnd = m_tStart + clip.length;
 		yield return new WaitUntil (() =>{return m_isManualInput || Time.time > m_tEnd;});
 		m_isManualInput = false;
+
 		bool isCorrect = CodeCalculator.Me.DidPlayerDecodeTransmissionSuccessfully ();
 		GameManager.Me.SetState(isCorrect ? (IGameState)SuccessGameState.Me : (IGameState)FailGameState.Me);
 		AudioManager.Me.Debug_SkipAudio();

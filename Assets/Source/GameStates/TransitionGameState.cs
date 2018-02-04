@@ -12,8 +12,8 @@ public class TransitionGameState : GameState<TransitionGameState>, IGameState
 	public System.Action OnFaded;
 
 	public Image m_mask;
-	public float fadeSecs = 2f;
-	public float holdSecs = 2f;
+	public float fadeSecs = 1f;
+	public float holdSecs = 1f;
 	public float FulUpPos;
 	public float FulDownPos;
 	bool isForceDown = false;
@@ -21,13 +21,20 @@ public class TransitionGameState : GameState<TransitionGameState>, IGameState
 	// -------------------------------------------------------------------------------------------
 	void Awake()
 	{
-
+		m_mask.color = Color.black;
 	}
 
 	// -------------------------------------------------------------------------------------------
 	public void ForceDown()
 	{
 		isForceDown = true;
+	}
+
+	// -------------------------------------------------------------------------------------------
+	bool exit = false;
+	public void ForceExit()
+	{
+		exit = true;
 	}
 
 	// -------------------------------------------------------------------------------------------
@@ -40,36 +47,46 @@ public class TransitionGameState : GameState<TransitionGameState>, IGameState
 	// -------------------------------------------------------------------------------------------
 	IEnumerator Co_Transition()
 	{
-		float pcnt = 1;
+		float pcnt = 0f;
 		m_mask.enabled = true;
 		m_mask.raycastTarget = true;
 
 		if (!isForceDown)
 		{
-			while (pcnt > 0f)
+			while (pcnt < 1f)
 			{
-				m_mask.color = new Color (pcnt, pcnt, pcnt);
-				pcnt -= Time.deltaTime / fadeSecs;
+				m_mask.color = new Color (0f, 0f, 0f, pcnt);
+				pcnt += Time.deltaTime / fadeSecs;
 				yield return null;
+				m_mask.color = Color.black;
+				if (exit)
+					goto END;
 			}
 		}
-
-		m_mask.color = Color.white;
-		pcnt = 0f;
+		else
+		{
+			m_mask.color = Color.black;
+		}
+			
+		pcnt = 1f;
 
 		if (OnFaded != null)
 			OnFaded ();
 		OnFaded = null;
 
 		isForceDown = false;
-		while (pcnt < 1f)
+		while (pcnt > 0f)
 		{
-			m_mask.color = new Color (pcnt, pcnt, pcnt);
-			pcnt += Time.deltaTime / fadeSecs;
+			m_mask.color = new Color(0f, 0f, 0f, pcnt);
+			pcnt -= Time.deltaTime / fadeSecs;
 			yield return null;
+			m_mask.color = Color.black;
+			if (exit)
+				goto END;
 		}
 
-		m_mask.color = Color.clear;
+		END:
+		exit = false;
 		m_mask.enabled = false;
 		m_mask.raycastTarget = false;
 

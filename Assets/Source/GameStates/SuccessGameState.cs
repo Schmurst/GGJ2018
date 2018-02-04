@@ -12,16 +12,13 @@ public class SuccessGameState : GameState<SuccessGameState>, IGameState
 	public override void EnterState ()
 	{
 		base.EnterState ();
-		StartCoroutine (Co_SuccessToNextDay());
-	}
+		AudioManager.Me.ForceFadeAudio ();
 
-	// -------------------------------------------------------------------------------------------
-	IEnumerator Co_SuccessToNextDay()
-	{
-		yield return new WaitForSeconds (m_dayToDayDelay);
-		RadioManager.Me.IncrementToNextDay ();
 		TransitionGameState.Me.OnFaded = () => {
-			DraggableGUIManager.Me.SpawnStartDraggables(RadioManager.Me.WeekIdx);
+			int oldWeek = RadioManager.Me.WeekIdx;
+			RadioManager.Me.IncrementToNextDay ();
+			if (oldWeek != RadioManager.Me.WeekIdx)
+				DraggableGUIManager.Me.SpawnStartDraggables(RadioManager.Me.WeekIdx);
 		};
 
 		TransitionGameState.Me.OnComplete = () => {GameManager.Me.SetState (RadioGameState.Me);};

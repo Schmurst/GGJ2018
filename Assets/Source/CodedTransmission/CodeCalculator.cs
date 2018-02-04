@@ -46,7 +46,10 @@ public class CodeCalculator : MonoSingleton<CodeCalculator>
 			}
 		}
 
-		//rules
+		//week 3 rules
+		// tablke
+
+		// lotto david
 
 		Debug.LogFormat ("<color=green>Code is {0}</color>", value);
 		return value;
